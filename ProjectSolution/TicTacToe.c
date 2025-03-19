@@ -5,7 +5,7 @@
 #include <stdlib.h> //used for rand() and srand()
 #include <time.h>	//used for time()
 
-char board[3][3];
+int board[3][3]; //set board as a global variable
 
 void boardReset();
 void boardSetUp();
@@ -17,41 +17,63 @@ void printWin();
 
 int main()
 {
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			printf("%i", board[i][j]);
-		}
-	}
-
+	srand(time(0));
 	
+	printf("Would you like to play??? (Y = yes : N = no) : ")
+	boardReset(); //calls the function to reset the board
+	
+		do
+		{
+			boardSetUp(); //calls the function to setup the board 
+			
+			movePlayer(); //calls function so the player can make their move
+			checkWin(); //calls the function to see if a winning move was done 
+			moveComputer(); //calls the function so the cpu can take its turn 
+			checkWin(); //calls the function to see if a winning move was done 
+		} while (freeSpace() != 0);
 
+		printWin();
+		break;
+	}
 	return 0;
 }
 
-void boardReset()
-{
-
-}
-
-void boardSetUp()
+void boardReset() //this function sets every space to ' ' which is a empty space
 {
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 3; j++)
 		{
-			do
-			{
-				printf("|");
-			} while (board[0][0] && board[0][1] && board[0][2]);
+			board[i][j] = ' ';
 		}
 	}
 }
 
-int freeSpace()
+void boardSetUp() //this function sets up the board and is what is used to place in the inputs from the user and the cpu 
 {
+	printf(" %c | %c | %c \n", board[0][0], board[0][1], board[0][2]);
+	printf("---|---|--- \n");
+	printf(" %c | %c | %c \n", board[1][0], board[1][1], board[1][2]);
+	printf("---|---|--- \n");
+	printf(" %c | %c | %c \n", board[2][0], board[2][1], board[2][2]);
+}
 
+int freeSpace() //this function checks to see if there are any free spaces so the user and cpu dont place a X or O on a space already picked 
+{
+	int empty = 9;
+
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			if (board[i][j] != ' ')
+			{
+				empty--;
+			}
+			
+		}
+	}
+	return empty;
 }
 
 void moveComputer()

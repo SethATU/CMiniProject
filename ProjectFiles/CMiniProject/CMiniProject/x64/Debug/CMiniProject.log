@@ -1,4 +1,4 @@
 ﻿  TicTacToe.c
-C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(55,1): warning C4716: 'freeSpace': must return a value
-C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(70,1): warning C4716: 'checkWin': must return a value
+C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(20,8): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(82,1): warning C4716: 'checkWin': must return a value
   CMiniProject.vcxproj -> C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectFiles\CMiniProject\x64\Debug\CMiniProject.exe
