@@ -37,15 +37,18 @@ int main()
 				boardSetUp();
 				freeSpace();
 				movePlayer();
+
 				if (checkWin() != ' ')
 				{
 					break;
 				}
+
 				boardSetUp();
 				//cpus move
 				printf("\nCPUs turn\n");
 				freeSpace();
 				moveComputer();
+
 				if (checkWin() != ' ')
 				{
 					break;
@@ -87,7 +90,7 @@ void boardSetUp() //this function sets up the board and is what is used to place
 	printf(" %c | %c | %c \n", board[2][0], board[2][1], board[2][2]);
 }
 
-int freeSpace() //this function checks to see if there are any free spaces so the user and cpu dont place a X or O on a space already picked 
+int freeSpace() //this function checks to see if there are any free spaces and when there are no more spaces the game ties or the player/cpu win 
 {
 	int empty = 9;
 
@@ -105,7 +108,7 @@ int freeSpace() //this function checks to see if there are any free spaces so th
 	return empty;
 }
 
-void moveComputer()
+void moveComputer() //this function uses random numbers for the cpu to pick a place to place a O,  if the space picked is a ' ' then cpu goes again till it picks a space not clamed 
 {
 	srand(time(0));
 	int move = (rand() % 9);
@@ -119,6 +122,7 @@ void moveComputer()
 			}
 			else
 			{
+				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -130,6 +134,7 @@ void moveComputer()
 			}
 			else
 			{
+				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -141,6 +146,7 @@ void moveComputer()
 			}
 			else
 			{
+				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -152,6 +158,7 @@ void moveComputer()
 			}
 			else
 			{
+				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -163,6 +170,7 @@ void moveComputer()
 			}
 			else
 			{
+				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -174,6 +182,7 @@ void moveComputer()
 			}
 			else
 			{
+				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -185,6 +194,7 @@ void moveComputer()
 			}
 			else
 			{
+				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -196,6 +206,7 @@ void moveComputer()
 			}
 			else
 			{
+				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -207,6 +218,7 @@ void moveComputer()
 			}
 			else
 			{
+				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -215,7 +227,7 @@ void moveComputer()
 
 void movePlayer()
 {
-	int x, y;
+	int x = 0, y = 0;
 
 	//player entersa row
 	printf("\nEnter Row (0-2): ");
@@ -231,6 +243,7 @@ void movePlayer()
 		printf("\nInvalid entry!!");
 		movePlayer();
 	}
+	//if the player enters a number that has already been picked the player is asked to reenter their move
 	else if (board[x][y] != ' ')
 	{
 		printf("\nInvalid entry!!");
@@ -289,5 +302,16 @@ char checkWin()
 
 void printWin()
 {
-
+	if (checkWin == 'X')
+	{
+		printf("You Win!!!");
+	}
+	else if (checkWin == 'O')
+	{
+		printf("CPU Win!!!");
+	}
+	else if (freeSpace == 0)
+	{
+		printf("Nobody Wins :( ");
+	}
 }
