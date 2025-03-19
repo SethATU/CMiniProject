@@ -15,26 +15,53 @@ void movePlayer();
 char checkWin();
 void printWin();
 
+/*
+boardSetUp(); //calls the function to setup the board
+
+				movePlayer(); //calls function so the player can make their move
+				checkWin(); //calls the function to see if a winning move was done
+				moveComputer(); //calls the function so the cpu can take its turn
+				checkWin(); //calls the function to see if a winning move was done */
+
 int main()
 {
-	srand(time(0));
+	char play = ' ';
 	
-	printf("Would you like to play??? (Y = yes : N = no) : ")
-	boardReset(); //calls the function to reset the board
-	
-		do
-		{
-			boardSetUp(); //calls the function to setup the board 
-			
-			movePlayer(); //calls function so the player can make their move
-			checkWin(); //calls the function to see if a winning move was done 
-			moveComputer(); //calls the function so the cpu can take its turn 
-			checkWin(); //calls the function to see if a winning move was done 
-		} while (freeSpace() != 0);
+	printf("Would you like to play??? (Y = yes : N = no) : ");
+	scanf_s(" %c", &play);
 
-		printWin();
-		break;
+	switch (play)
+	{
+		// a new game starts
+		case 'y':
+		case 'Y':
+
+			boardReset(); //calls the function to reset the board
+
+			do
+			{
+				//players move 
+				boardSetUp();
+				freeSpace();
+				movePlayer();
+
+				//cpus move
+				boardSetUp();
+				freeSpace();
+				moveComputer();
+
+			} while (freeSpace() != 0);
+
+			//anounces if the cpu or the player won 
+			printWin();
+			break;
+
+		// the program ends
+		case 'n':
+		case 'N':
+			break;
 	}
+	
 	return 0;
 }
 
@@ -83,7 +110,23 @@ void moveComputer()
 
 void movePlayer()
 {
+	int x, y;
 
+	//player entersa row
+	printf("\nEnter Row (0-2): ");
+	scanf_s("%d", &x);
+	
+	//player enters colume
+	printf("\nEnter Colume (0-2): ");
+	scanf_s("%d", &y);
+
+	//if the player enters a number to big the player is asked to reenter their move
+	if (x || y > 2)
+	{
+		printf("\nInvalid entry!!");
+		movePlayer();
+	}
+	return board[x][y];
 }
 
 char checkWin()
