@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sethb\\OneDrive - Atlantic TU\\Year_1_Semester_2\\C\u002B\u002B Programming\\Mini Project\\c_mini_project\\CMiniProject\\ProjectFiles\\CMiniProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{28C5C343-3D81-4558-A726-6AA18531E4BA}|CMiniProject.vcxproj|C:\\Users\\sethb\\OneDrive - Atlantic TU\\Year_1_Semester_2\\C\u002B\u002B Programming\\Mini Project\\c_mini_project\\CMiniProject\\ProjectSolution\\TicTacToe.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TicTacToe.c",
+              "DocumentMoniker": "C:\\Users\\sethb\\OneDrive - Atlantic TU\\Year_1_Semester_2\\C\u002B\u002B Programming\\Mini Project\\c_mini_project\\CMiniProject\\ProjectSolution\\TicTacToe.c",
+              "RelativeDocumentMoniker": "..\\..\\ProjectSolution\\TicTacToe.c",
+              "ToolTip": "C:\\Users\\sethb\\OneDrive - Atlantic TU\\Year_1_Semester_2\\C\u002B\u002B Programming\\Mini Project\\c_mini_project\\CMiniProject\\ProjectSolution\\TicTacToe.c",
+              "RelativeToolTip": "..\\..\\ProjectSolution\\TicTacToe.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-03-19T12:38:39.751Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
