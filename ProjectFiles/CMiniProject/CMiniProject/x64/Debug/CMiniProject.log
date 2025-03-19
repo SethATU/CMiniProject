@@ -1,4 +1,12 @@
 ﻿  TicTacToe.c
-C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(20,8): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(82,1): warning C4716: 'checkWin': must return a value
+C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(31,10): warning C4473: 'scanf_s' : not enough arguments passed for format string
+      C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(31,10):
+      placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+      C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(31,10):
+      the missing variadic argument 2 is required by format string '%c'
+      C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(31,10):
+      this argument is used as a buffer size
+  
+C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(129,2): warning C4098: 'movePlayer': 'void' function returning a value
+C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(135,1): warning C4716: 'checkWin': must return a value
   CMiniProject.vcxproj -> C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectFiles\CMiniProject\x64\Debug\CMiniProject.exe
