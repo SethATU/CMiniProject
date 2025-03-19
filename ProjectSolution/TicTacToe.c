@@ -7,21 +7,14 @@
 
 int board[3][3]; //set board as a global variable
 
-void boardReset();
+//seting up all the functions needed
+void boardReset(); 
 void boardSetUp();
 int freeSpace();
 void moveComputer();
 void movePlayer();
 char checkWin();
 void printWin();
-
-/*
-boardSetUp(); //calls the function to setup the board
-
-				movePlayer(); //calls function so the player can make their move
-				checkWin(); //calls the function to see if a winning move was done
-				moveComputer(); //calls the function so the cpu can take its turn
-				checkWin(); //calls the function to see if a winning move was done */
 
 int main()
 {
@@ -48,9 +41,9 @@ int main()
 				{
 					break;
 				}
-
-				//cpus move
 				boardSetUp();
+				//cpus move
+				printf("\nCPUs turn\n");
 				freeSpace();
 				moveComputer();
 				if (checkWin() != ' ')
@@ -114,7 +107,110 @@ int freeSpace() //this function checks to see if there are any free spaces so th
 
 void moveComputer()
 {
+	srand(time(0));
+	int move = (rand() % 9);
 
+	switch (move)
+	{
+		case 0:
+			if (board[0][0] == ' ')
+			{
+				board[0][0] = 'O';
+			}
+			else
+			{
+				moveComputer();
+			}
+			break;
+
+		case 1:
+			if (board[0][1] == ' ')
+			{
+				board[0][1] = 'O';
+			}
+			else
+			{
+				moveComputer();
+			}
+			break;
+
+		case 2:
+			if (board[0][2] == ' ')
+			{
+				board[0][2] = 'O';
+			}
+			else
+			{
+				moveComputer();
+			}
+			break;
+
+		case 3:
+			if (board[1][0] == ' ')
+			{
+				board[1][0] = 'O';
+			}
+			else
+			{
+				moveComputer();
+			}
+			break;
+
+		case 4:
+			if (board[1][1] == ' ')
+			{
+				board[1][1] = 'O';
+			}
+			else
+			{
+				moveComputer();
+			}
+			break;
+
+		case 5:
+			if (board[1][2] == ' ')
+			{
+				board[1][2] = 'O';
+			}
+			else
+			{
+				moveComputer();
+			}
+			break;
+
+		case 6:
+			if (board[2][0] == ' ')
+			{
+				board[2][0] = 'O';
+			}
+			else
+			{
+				moveComputer();
+			}
+			break;
+
+		case 7:
+			if (board[2][1] == ' ')
+			{
+				board[2][1] = 'O';
+			}
+			else
+			{
+				moveComputer();
+			}
+			break;
+
+		case 8:
+			if (board[2][2] == ' ')
+			{
+				board[2][2] = 'O';
+			}
+			else
+			{
+				moveComputer();
+			}
+			break;
+	}
 }
 
 void movePlayer()
