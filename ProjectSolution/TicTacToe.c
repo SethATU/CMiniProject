@@ -5,19 +5,50 @@
 #include <stdlib.h> //used for rand() and srand()
 #include <time.h>	//used for time()
 
-/*
-inisalise board
-win conditions
-winner message
-my go
-computers go
-board updates
-check for clear spaces
-reset board
-*/
-
+void boardReset();
+void boardSetUp();
+int freeSpace();
+void moveComputer();
+void movePlayer();
+char checkWin();
+void printWin();
 
 int main()
 {
 	return 0;
+}
+
+void boardReset()
+{
+
+}
+
+void boardSetUp()
+{
+
+}
+
+int freeSpace()
+{
+
+}
+
+void moveComputer()
+{
+
+}
+
+void movePlayer()
+{
+
+}
+
+char checkWin()
+{
+
+}
+
+void printWin()
+{
+
 }
