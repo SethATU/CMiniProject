@@ -1,0 +1,4 @@
+﻿  TicTacToe.c
+C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(55,1): warning C4716: 'freeSpace': must return a value
+C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(70,1): warning C4716: 'checkWin': must return a value
+  CMiniProject.vcxproj -> C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectFiles\CMiniProject\x64\Debug\CMiniProject.exe
