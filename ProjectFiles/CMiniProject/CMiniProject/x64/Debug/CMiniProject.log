@@ -8,6 +8,6 @@ C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Pro
       this argument is used as a buffer size
   
 C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(113,8): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(305,15): warning C4047: '==': 'char (__cdecl *)()' differs in levels of indirection from 'int'
-C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(309,20): warning C4047: '==': 'char (__cdecl *)()' differs in levels of indirection from 'int'
+C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(299,15): warning C4047: '==': 'char (__cdecl *)()' differs in levels of indirection from 'int'
+C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectSolution\TicTacToe.c(303,20): warning C4047: '==': 'char (__cdecl *)()' differs in levels of indirection from 'int'
   CMiniProject.vcxproj -> C:\Users\sethb\OneDrive - Atlantic TU\Year_1_Semester_2\C++ Programming\Mini Project\c_mini_project\CMiniProject\ProjectFiles\CMiniProject\x64\Debug\CMiniProject.exe
