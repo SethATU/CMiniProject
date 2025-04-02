@@ -122,7 +122,6 @@ void moveComputer() //this function uses random numbers for the cpu to pick a pl
 			}
 			else
 			{
-				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -134,7 +133,6 @@ void moveComputer() //this function uses random numbers for the cpu to pick a pl
 			}
 			else
 			{
-				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -146,7 +144,6 @@ void moveComputer() //this function uses random numbers for the cpu to pick a pl
 			}
 			else
 			{
-				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -158,7 +155,6 @@ void moveComputer() //this function uses random numbers for the cpu to pick a pl
 			}
 			else
 			{
-				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -170,7 +166,6 @@ void moveComputer() //this function uses random numbers for the cpu to pick a pl
 			}
 			else
 			{
-				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -182,7 +177,6 @@ void moveComputer() //this function uses random numbers for the cpu to pick a pl
 			}
 			else
 			{
-				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -194,7 +188,6 @@ void moveComputer() //this function uses random numbers for the cpu to pick a pl
 			}
 			else
 			{
-				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -206,7 +199,6 @@ void moveComputer() //this function uses random numbers for the cpu to pick a pl
 			}
 			else
 			{
-				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -218,7 +210,6 @@ void moveComputer() //this function uses random numbers for the cpu to pick a pl
 			}
 			else
 			{
-				move = (rand() % 9);
 				moveComputer();
 			}
 			break;
@@ -238,7 +229,7 @@ void movePlayer()
 	scanf_s("%d", &y);
 
 	//if the player enters a number to big the player is asked to reenter their move
-	if (x || y > 2)
+	if (x > 2 || y > 2)
 	{
 		printf("\nInvalid entry!!");
 		movePlayer();
@@ -255,49 +246,52 @@ void movePlayer()
 
 char checkWin()
 {
+	char character;
 	//checking for a rown win 
 	if (board[0][0] == board[0][1] && board[0][0] == board[0][2])
 	{
-		return board[0][0];
+		character = board[0][0];
 	}
 	else if (board[1][0] == board[1][1] && board[1][0] == board[1][2])
 	{
-		return board[1][0];
+		character = board[1][0];
 	}
 	else if (board[2][0] == board[2][1] && board[2][0] == board[2][2])
 	{
-		return board[2][0];
+		character = board[2][0];
 	}
 
 	//checking for diagional win
 	else if (board[0][2] == board[1][1] && board[0][2] == board[2][0])
 	{
-		return board[0][2];
+		character = board[0][2];
 	}
 	else if (board[0][0] == board[1][1] && board[0][0] == board[2][2])
 	{
-		return board[0][0];
+		character = board[0][0];
 	}
 
 	//checking for columb win
 	if (board[0][0] == board[1][0] && board[0][0] == board[2][0])
 	{
-		return board[0][0];
+		character = board[0][0];
 	}
 	else if (board[0][1] == board[1][1] && board[0][1] == board[2][1])
 	{
-		return board[0][1];
+		character = board[0][1];
 	}
 	else if (board[0][2] == board[1][2] && board[0][2] == board[2][2])
 	{
-		return board[0][2];
+		character = board[0][2];
 	}
 
 	//if non of the if statments are true then its a tie
 	else
 	{
-		return ' ';
+		character = ' ';
 	}
+
+	return character;
 }
 
 void printWin()
