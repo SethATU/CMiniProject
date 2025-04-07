@@ -2,13 +2,13 @@
 //TicTaCToe
 
 #include <stdio.h>
-#include <stdlib.h> //used for rand() and srand()
-#include <time.h>	//used for time()
+#include <stdlib.h>
+#include <time.h>
 
-int board[3][3]; //set board as a global variable
+int board[3][3]; // Global tic-tac-toe board
 
-//seting up all the functions needed
-void boardReset(); 
+// Function declarations
+void boardReset();
 void boardSetUp();
 int freeSpace();
 void moveComputer();
@@ -19,293 +19,120 @@ void printWin();
 int main()
 {
 	char play = ' ';
-	
-	printf("Would you like to play??? (Y = yes : N = no) : ");
-	scanf_s(" %c", &play);
+	srand(time(0)); // Seed random number generator
 
-	switch (play)
-	{
-		// a new game starts
-		case 'y':
-		case 'Y':
+	printf("Would you like to play? (Y = yes, N = no): ");
+	scanf_s(" %c", &play, 1);
 
-			boardReset(); //calls the function to reset the board
+	if (play == 'y' || play == 'Y') {
+		boardReset(); // Reset the board before starting
 
-			do
-			{
-				//players move 
-				boardSetUp();
-				freeSpace();
-				movePlayer();
+		do {
+			boardSetUp(); // Display the board
+			movePlayer(); // Player's move
+			if (checkWin() != ' ' || freeSpace() == 0) break; // Check if game is over
 
-				if (checkWin() != ' ')
-				{
-					break;
-				}
+			printf("\nCPU's turn\n");
+			moveComputer(); // CPU's move
+		} while (checkWin() == ' ' && freeSpace() > 0);
 
-				boardSetUp();
-				//cpus move
-				printf("\nCPUs turn\n");
-				freeSpace();
-				moveComputer();
-
-				if (checkWin() != ' ')
-				{
-					break;
-				}
-
-			} while (freeSpace() != 0);
-
-			boardSetUp();
-			//anounces if the cpu or the player won 
-			printWin();
-			break;
-
-		// the program ends
-		case 'n':
-		case 'N':
-			break;
+		boardSetUp(); // Display final board
+		printWin(); // Print winner or tie
 	}
-	
 	return 0;
 }
 
-void boardReset() //this function sets every space to ' ' which is a empty space
-{
+// Resets the board to empty spaces
+void boardReset() {
 	for (int i = 0; i < 3; i++)
-	{
 		for (int j = 0; j < 3; j++)
-		{
 			board[i][j] = ' ';
+}
+
+// Displays the current board state
+void boardSetUp() {
+	printf("\n");
+	int position = 1;
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (board[i][j] == ' ')
+				printf(" %d ", position); // Show position number
+			else
+				printf(" %c ", board[i][j]);
+			if (j < 2) printf("|"); // Print column dividers
+			position++;
 		}
+		if (i < 2) printf("\n---|---|---\n"); // Print row dividers
 	}
+	printf("\n");
 }
 
-void boardSetUp() //this function sets up the board and is what is used to place in the inputs from the user and the cpu 
-{
-	printf(" %c | %c | %c \n", board[0][0], board[0][1], board[0][2]);
-	printf("---|---|--- \n");
-	printf(" %c | %c | %c \n", board[1][0], board[1][1], board[1][2]);
-	printf("---|---|--- \n");
-	printf(" %c | %c | %c \n", board[2][0], board[2][1], board[2][2]);
-}
-
-int freeSpace() //this function checks to see if there are any free spaces and when there are no more spaces the game ties or the player/cpu win 
-{
+// Checks how many spaces are free
+int freeSpace() {
 	int empty = 9;
-
 	for (int i = 0; i < 3; i++)
-	{
 		for (int j = 0; j < 3; j++)
-		{
-			if (board[i][j] != ' ')
-			{
-				empty--;
-			}
-			
-		}
-	}
+			if (board[i][j] != ' ') empty--;
 	return empty;
 }
 
-void moveComputer() //this function uses random numbers for the cpu to pick a place to place a O,  if the space picked is a ' ' then cpu goes again till it picks a space not clamed 
-{
-	srand(time(0));
-	int move = (rand() % 9);
-
-	switch (move)
-	{
-		case 0:
-			if (board[0][0] == ' ')
-			{
-				board[0][0] = 'O';
-			}
-			else
-			{
-				moveComputer();
-			}
-			break;
-
-		case 1:
-			if (board[0][1] == ' ')
-			{
-				board[0][1] = 'O';
-			}
-			else
-			{
-				moveComputer();
-			}
-			break;
-
-		case 2:
-			if (board[0][2] == ' ')
-			{
-				board[0][2] = 'O';
-			}
-			else
-			{
-				moveComputer();
-			}
-			break;
-
-		case 3:
-			if (board[1][0] == ' ')
-			{
-				board[1][0] = 'O';
-			}
-			else
-			{
-				moveComputer();
-			}
-			break;
-
-		case 4:
-			if (board[1][1] == ' ')
-			{
-				board[1][1] = 'O';
-			}
-			else
-			{
-				moveComputer();
-			}
-			break;
-
-		case 5:
-			if (board[1][2] == ' ')
-			{
-				board[1][2] = 'O';
-			}
-			else
-			{
-				moveComputer();
-			}
-			break;
-
-		case 6:
-			if (board[2][0] == ' ')
-			{
-				board[2][0] = 'O';
-			}
-			else
-			{
-				moveComputer();
-			}
-			break;
-
-		case 7:
-			if (board[2][1] == ' ')
-			{
-				board[2][1] = 'O';
-			}
-			else
-			{
-				moveComputer();
-			}
-			break;
-
-		case 8:
-			if (board[2][2] == ' ')
-			{
-				board[2][2] = 'O';
-			}
-			else
-			{
-				moveComputer();
-			}
-			break;
-	}
+// CPU randomly selects an empty spot
+void moveComputer() {
+	int x, y;
+	do {
+		x = rand() % 3;
+		y = rand() % 3;
+	} while (board[x][y] != ' ');
+	board[x][y] = 'O';
 }
 
-void movePlayer()
-{
-	int x = 0, y = 0;
+// Handles player's move (now uses 1-9 input)
+void movePlayer() {
+	int pos;
+	do {
+		printf("\nEnter position (1-9): ");
+		scanf_s("%d", &pos);
 
-	//player entersa row
-	printf("\nEnter Row (0-2): ");
-	scanf_s("%d", &x);
-	
-	//player enters colume
-	printf("Enter Colume (0-2): ");
-	scanf_s("%d", &y);
+		if (pos < 1 || pos > 9) {
+			printf("Invalid input! Try again.\n");
+			continue;
+		}
 
-	//if the player enters a number to big the player is asked to reenter their move
-	if (x > 2 || y > 2)
-	{
-		printf("\nInvalid entry!!");
-		movePlayer();
-	}
-	//if the player enters a number that has already been picked the player is asked to reenter their move
-	else if (board[x][y] != ' ')
-	{
-		printf("\nInvalid entry!!");
-		movePlayer();
-	}
+		int x = (pos - 1) / 3;
+		int y = (pos - 1) % 3;
 
-	board[x][y] = 'X';
+		if (board[x][y] != ' ') {
+			printf("Position already taken! Try again.\n");
+		}
+		else {
+			board[x][y] = 'X';
+			break;
+		}
+	} while (1);
 }
 
-char checkWin()
-{
-	char character;
-	//checking for a rown win 
-	if (board[0][0] == board[0][1] && board[0][0] == board[0][2])
-	{
-		character = board[0][0];
+// Checks for a winning condition
+char checkWin() {
+	for (int i = 0; i < 3; i++) {
+		if (board[i][0] != ' ' && board[i][0] == board[i][1] && board[i][0] == board[i][2])
+			return board[i][0]; // Check rows
+		if (board[0][i] != ' ' && board[0][i] == board[1][i] && board[0][i] == board[2][i])
+			return board[0][i]; // Check columns
 	}
-	else if (board[1][0] == board[1][1] && board[1][0] == board[1][2])
-	{
-		character = board[1][0];
-	}
-	else if (board[2][0] == board[2][1] && board[2][0] == board[2][2])
-	{
-		character = board[2][0];
-	}
+	if (board[0][0] != ' ' && board[0][0] == board[1][1] && board[0][0] == board[2][2])
+		return board[0][0]; // Check diagonal
+	if (board[0][2] != ' ' && board[0][2] == board[1][1] && board[0][2] == board[2][0])
+		return board[0][2]; // Check diagonal
+	return ' ';
+}
 
-	//checking for diagional win
-	else if (board[0][2] == board[1][1] && board[0][2] == board[2][0])
-	{
-		character = board[0][2];
-	}
-	else if (board[0][0] == board[1][1] && board[0][0] == board[2][2])
-	{
-		character = board[0][0];
-	}
-
-	//checking for columb win
-	if (board[0][0] == board[1][0] && board[0][0] == board[2][0])
-	{
-		character = board[0][0];
-	}
-	else if (board[0][1] == board[1][1] && board[0][1] == board[2][1])
-	{
-		character = board[0][1];
-	}
-	else if (board[0][2] == board[1][2] && board[0][2] == board[2][2])
-	{
-		character = board[0][2];
-	}
-
-	//if non of the if statments are true then its a tie
+// Displays the game result
+void printWin() {
+	char winner = checkWin();
+	if (winner == 'X')
+		printf("\nYou Win!!!\n");
+	else if (winner == 'O')
+		printf("\nCPU Wins!!!\n");
 	else
-	{
-		character = ' ';
-	}
-
-	return character;
-}
-
-void printWin()
-{
-	if (checkWin == 'X')
-	{
-		printf("You Win!!!");
-	}
-	else if (checkWin == 'O')
-	{
-		printf("CPU Win!!!");
-	}
-	else if (freeSpace == 0)
-	{
-		printf("Nobody Wins :( ");
-	}
+		printf("\nIt's a tie!\n");
 }
