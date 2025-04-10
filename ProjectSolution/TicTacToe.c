@@ -4,8 +4,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
 
 int board[3][3]; // Global tic-tac-toe board
+int scoreP = 0, scoreC = 0, tie = 0; // Global scores for player, computer, and ties	
 
 // Function declarations
 void boardReset();
@@ -15,6 +17,8 @@ void moveComputer();
 void movePlayer();
 char checkWin();
 void printWin();
+bool playAgain();
+void gameScore();
 
 int main()
 {
@@ -25,19 +29,24 @@ int main()
 	scanf_s(" %c", &play, 1);
 
 	if (play == 'y' || play == 'Y') {
-		boardReset(); // Reset the board before starting
+		do
+		{
+			boardReset(); // Reset the board before starting
 
-		do {
-			boardSetUp(); // Display the board
-			movePlayer(); // Player's move
-			if (checkWin() != ' ' || freeSpace() == 0) break; // Check if game is over
+			do {
+				boardSetUp(); // Display the board
+				printf("\nYour turn\n"); 
+				movePlayer(); // Player's move
+				if (checkWin() != ' ' || freeSpace() == 0) break; // Check if game is over
 
-			printf("\nCPU's turn\n");
-			moveComputer(); // CPU's move
-		} while (checkWin() == ' ' && freeSpace() > 0);
+				printf("\nCPU's turn\n");
+				moveComputer(); // CPU's move
+			} while (checkWin() == ' ' && freeSpace() > 0);
 
-		boardSetUp(); // Display final board
-		printWin(); // Print winner or tie
+			boardSetUp(); // Display final board
+			printWin(); // Print winner or tie
+			gameScore(); // Show the score of cpu and the player
+		} while (playAgain() == true);
 	}
 	return 0;
 }
@@ -90,7 +99,7 @@ void moveComputer() {
 void movePlayer() {
 	int pos;
 	do {
-		printf("\nEnter position (1-9): ");
+		printf("Enter position (1-9): ");
 		scanf_s("%d", &pos);
 
 		if (pos < 1 || pos > 9) {
@@ -135,4 +144,34 @@ void printWin() {
 		printf("\nCPU Wins!!!\n");
 	else
 		printf("\nIt's a tie!\n");
+}
+// Show the score of cpu and the player 
+void gameScore() {
+	if (checkWin() == 'X') {
+		scoreP++;
+	}
+	else if (checkWin() == 'O') {
+		scoreC++;	
+	}
+	else {
+		tie++;	
+	}
+	printf("Score\nPlayer:\t\t%i\nComputer:\t%i\nTies:\t\t%i", scoreP, scoreC, tie);
+}
+
+// Asks if the player wants to play again	
+bool playAgain() {
+	bool aga = true;
+	printf("\nWould you like to play again? (Y = yes, N = no): ");
+	scanf_s(" %c", &aga, 1);
+	if (aga == 'y' || aga == 'Y') 
+	{
+		aga = true;
+	}
+	else
+	{
+		printf("Thanks for playing!\n");
+		aga = false;
+	}
+	return aga;	
 }
