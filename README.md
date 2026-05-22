@@ -1,1 +1,1 @@
-#C Programming Tic Tac Toe Project 
+C Programming Tic Tac Toe Project 
